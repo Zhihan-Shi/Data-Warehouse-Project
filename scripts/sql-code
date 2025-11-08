@@ -1,0 +1,21 @@
+-- Check if alreadt existing a database called 'DataWarehouse',if so drop it and recreate a new one.
+
+
+-- Create Database 'DataWarehouse'
+
+USE master;
+
+CREATE DATABASE DataWarehouse;
+
+USE DataWarehouse;
+
+-- Create 3 Schemas
+CREATE SCHEMA bronze;
+GO
+CREATE SCHEMA silver;
+GO
+CREATE SCHEMA gold;
+GO
+
+
+
