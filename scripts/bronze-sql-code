@@ -80,10 +80,6 @@ CREATE TABLE bronze.erp_PX_CAT_G1V2(
 	MAINTENANCE VARCHAR(50)
 );	
 
--- Change the name from uppercase to lowercase
-EXEC sp_rename 'bronze.erp_PX_CAT_G1V2', 'bronze.erp_px_cat_g1v2';
-EXEC sp_rename 'bronze.erp_LOC_A101', 'bronze.erp_loc_a101';
-EXEC sp_rename 'bronze.erp_CUST_AZ12', 'bronze.erp_cust_az12';
 
 
 
