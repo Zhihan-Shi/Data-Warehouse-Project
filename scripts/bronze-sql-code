@@ -1,3 +1,14 @@
+/*
+=====================================================================================================
+Stored Procedure: Load Bronze Layer
+=====================================================================================================
+Script Purpose:
+
+Usage Example:
+	EXEC bronze.load_bronze;
+=====================================================================================================
+*/
+
 -- Check if alreadt existing a database called 'DataWarehouse',if so drop it and recreate a new one.
 
 
