@@ -1,4 +1,33 @@
-﻿-- Create tables for the silver layer
+/*
+================================================================================
+Include 2 script sections:
+================================================================================
+1.	DDL Script: Create Silver Tables
+--------------------------------------------------------------------------------
+	Script Purpose:
+		This script creates tables in the 'silver' schema, dropping exisiting tables 
+		if they already exist.
+		Run this script to re-define the DDL structure of 'bronze' Tables.
+---------------------------------------------------------------------------------
+2.	Stored Procedure: Load Silver Layer (Bronze->Silver)
+----------------------------------------------------------------------------------
+	Script Purpose:
+		This stored procedure performs the ETL(Extract, Transform and Load) process to
+		populate the 'silver' schema tables from the 'bronze' schema.
+	Actions Performed:
+		- Truncate Silver Tables
+		- Insert transformed and cleaned data from bronze into silver tables.
+
+	Parameters:
+		None.
+		This stored procedure does not accept any parameter or return any value.
+
+	Usage Example:
+		EXEC Silver.load_silver;
+=================================================================================
+*/
+
+-- Create tables for the silver layer
 IF OBJECT_ID('silver.crm_cust_info','U') IS NOT NULL
 	DROP TABLE silver.crm_cust_info;
 CREATE TABLE silver.crm_cust_info(
