@@ -157,7 +157,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		/* 2. Clean & Load crm_pro_info. */
 		PRINT '>> Truncating Table:silver.crm_prd_info';
-		TRUNCATE TABLE silver.crm_cust_info
+		TRUNCATE TABLE silver.crm_prd_info
 		PRINT '>> Inserting Data Into:silver.crm_prd_info';
 		INSERT INTO silver.crm_prd_info(
 			prd_id,
@@ -191,7 +191,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		/* 3.Clean & Load crm_sales_details. */
 		PRINT '>> Truncating Table:silver.crm_sales_details';
-		TRUNCATE TABLE silver.crm_cust_info
+		TRUNCATE TABLE silver.crm_sales_details
 		PRINT '>> Inserting Data Into:silver.crm_sales_details';
 		INSERT INTO silver.crm_sales_details(
 			sls_ord_num,
@@ -239,7 +239,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		/* 4.Clean & Load erp_cust_az12 */
 		PRINT '>> Truncating Table:silver.erp_cust_az12';
-		TRUNCATE TABLE silver.crm_cust_info
+		TRUNCATE TABLE silver.erp_cust_az12
 		PRINT '>> Inserting Data Into:silver.erp_cust_az12';
 		INSERT INTO silver.erp_cust_az12(
 			CID,
@@ -265,7 +265,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		/* 5. Clean & Load erp_loc_a101 */
 		PRINT '>> Truncating Table:silver.erp_loc_a101';
-		TRUNCATE TABLE silver.crm_cust_info
+		TRUNCATE TABLE silver.erp_loc_a101
 		PRINT '>> Inserting Data Into:silver.erp_loc_a101';
 		INSERT INTO silver.erp_loc_a101 (
 				CID,
@@ -285,7 +285,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		/* 6.Clean & Load erp_px_cat_g1v2 */
 		PRINT '>> Truncating Table:silver.erp_px_cat_g1v2';
-		TRUNCATE TABLE silver.crm_cust_info
+		TRUNCATE TABLE silver.erp_px_cat_g1v2
 		PRINT '>> Inserting Data Into:silver.erp_px_cat_g1v2';
 		INSERT INTO silver.erp_px_cat_g1v2(
 			ID,
