@@ -1,25 +1,22 @@
-SELECT cst_id,COUNT(*) 
-FROM (
-	SELECT 
-		ci.cst_id,
-		ci.cst_key,
-		ci.cst_firstname,
-		ci.cst_lastname,
-		ci.cst_marital_status,
-		ci.cst_gndr,
-		ci.cst_create_date,
-		ca.BDATE,
-		ca.GEN,
-		la.CNTRY
-	FROM silver.crm_cust_info ci
-	LEFT JOIN silver.erp_cust_az12 ca
-	ON ci.cst_key = ca.CID
-	LEFT JOIN silver.erp_loc_a101 la
-	ON ci.cst_key = la.CID) t
-GROUP BY cst_id
-HAVING COUNT(*)>1; 
+/*
+================================================================================
+DDL Script : Create Gold Views
+================================================================================
+Script Purpose：
+	This script creates views for the Gold layer in the data warehouse.
+    The Gold layer represents the final dimension and fact sales (Star Schema).
 
+	Each view performs transformations and combines data from the Silver layer to
+    provide a clean, enriched, and business-ready dataset.
+
+Usage:
+	- These views can be queried directly for analytics and reporting.
+================================================================================
+*/
+
+-- ========================================================
 -- Create Dimension Customers
+-- ========================================================
 GO
 CREATE VIEW gold.dim_customers AS
 SELECT  
@@ -41,8 +38,11 @@ ON ci.cst_key = ca.CID
 LEFT JOIN silver.erp_loc_a101 la
 ON ci.cst_key = la.CID;
 
-GO
+
+-- ========================================================
 -- Create Dimension Products
+-- ========================================================
+GO
 CREATE VIEW gold.dim_products AS
 SELECT 
 		ROW_NUMBER() OVER(ORDER BY pn.prd_start_dt,pn.prd_key) AS product_key,
@@ -61,9 +61,11 @@ LEFT JOIN silver.erp_px_cat_g1v2 pc
 ON pn.cat_id = pc.ID
 WHERE prd_end_dt IS NULL -- Filter out all historical data
 
-GO
+-- ========================================================
 -- Create Fact Sales
 -- Use the dimension's surrogate keys instead of IDs to easily connect facts with dimensions.
+-- ========================================================
+GO
 CREATE VIEW gold.fact_sales AS
 SELECT 
 	sd.sls_ord_num AS order_number,
@@ -80,5 +82,26 @@ LEFT JOIN gold.dim_products pr
 ON sd.sls_prd_key = pr.product_number
 LEFT JOIN gold.dim_customers cu
 ON sd.sls_cust_id = cu.customer_id;
+
+SELECT cst_id,COUNT(*) 
+FROM (
+	SELECT 
+		ci.cst_id,
+		ci.cst_key,
+		ci.cst_firstname,
+		ci.cst_lastname,
+		ci.cst_marital_status,
+		ci.cst_gndr,
+		ci.cst_create_date,
+		ca.BDATE,
+		ca.GEN,
+		la.CNTRY
+	FROM silver.crm_cust_info ci
+	LEFT JOIN silver.erp_cust_az12 ca
+	ON ci.cst_key = ca.CID
+	LEFT JOIN silver.erp_loc_a101 la
+	ON ci.cst_key = la.CID) t
+GROUP BY cst_id
+HAVING COUNT(*)>1; 
 
 
