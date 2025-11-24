@@ -13,7 +13,10 @@ Usage Example:
 */
 
 -- Check if alreadt existing a database called 'DataWarehouse',if so drop it and recreate a new one.
-
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'DataWarehouse')
+BEGIN
+    DROP DATABASE DataWarehouse;
+END;
 
 -- Create Database 'DataWarehouse'
 
