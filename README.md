@@ -1,11 +1,10 @@
 # Data-Warehouse-Project
-A complete end-to-end Modern Data Warehouse built on SQL Server using the Medallion Architecture (Bronze → Silver → Gold).
-This project integrates ERP and CRM data, transforms it into a unified business model to enable business analytics.
+A complete end-to-end Modern Data Warehouse built on SQL Server following the Medallion Architecture (Bronze → Silver → Gold).
 
 ## 1️⃣ Executive Summary
-The company’s ERP and CRM data were siloed, causing inconsistent sales reporting and limiting visibility into customer and product performance.  
-To address this, a Modern Data Warehouse was built using the Medallion Architecture (Bronze–Silver–Gold), integrating raw ERP/CRM files, applying data cleansing and standardization, and modeling a unified star schema for analytics.  
-This solution significantly reduced manual reporting effort, improved data accuracy, and enabled consistent insights across teams. Future enhancements include adding historical tracking, automating ETL pipelines, and incorporating BI dashboards for interactive analysis.
+The company’s ERP and CRM data existed in separate systems, resulting in inconsistent reporting and limited visibility into sales, customers, and products.  
+To solve this, a Modern Data Warehouse was built using the Medallion Architecture (Bronze–Silver–Gold), integrating raw files, cleansing and standardizing data, and modeling a unified star schema for analytics.  
+This improved data quality, reduced manual reporting work, and enabled consistent, reliable insights across the business. Future improvements include adding historical tracking, ETL automation, and BI dashboards.
 
 ## 2️⃣ Business Problem
 The company’s ERP and CRM data were siloed and manually processed in spreadsheets. This caused:
@@ -17,17 +16,17 @@ The company’s ERP and CRM data were siloed and manually processed in spreadshe
 ## 3️⃣ Methodology
 <img width="800" height="590" alt="yuque_diagram" src="https://github.com/user-attachments/assets/44fb2b7e-5012-46b7-967d-6db6332b5019" />  
 
-**Bronze Layer – Raw Data**
+#### Bronze Layer – Raw Data
   - Load ERP&CRM CSV files
   - No transformations
-  - Maintain full data lineage
-**Silver Layer – Cleaned & Standardized**
+  - Maintain full data lineage  
+#### Silver Layer – Cleaned & Standardized
   - Data type corrections
   - Missing value handling
   - Deduplication
   - Integration of ERP + CRM
   - Derived columns & normalization
-**Gold Layer – Business-ready**
+#### Gold Layer – Business-ready
   - Star schema (Fact + Dimensions)
   - Business logic applied
   - Aggregated tables for analytics
