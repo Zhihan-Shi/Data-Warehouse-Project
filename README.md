@@ -39,8 +39,8 @@ This project demonstrates proficiency in:
 - SQL Development
 - Data Architecture
 - Data Engineering
-- ETL pipeline
-- Data cleansing & standardization
+- ETL Pipeline
+- Data Cleansing & Standardization
 - Data Modeling (Star Schema, Medallion Architecture)
 
 ## 5️⃣ Results 
