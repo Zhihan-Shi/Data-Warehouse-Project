@@ -2,9 +2,7 @@
 A complete end-to-end Modern Data Warehouse built on SQL Server following the Medallion Architecture (Bronze → Silver → Gold).
 
 ## 1️⃣ Executive Summary
-The company’s ERP and CRM data existed in separate systems, resulting in inconsistent reporting and limited visibility into sales, customers, and products.  
-To solve this, a Modern Data Warehouse was built using the Medallion Architecture (Bronze–Silver–Gold), integrating raw files, cleansing and standardizing data, and modeling a unified star schema for analytics.  
-This improved data quality, reduced manual reporting work, and enabled consistent, reliable insights across the business. Future improvements include adding historical tracking, ETL automation, and BI dashboards.
+The company’s ERP and CRM data existed in separate systems, resulting in inconsistent reporting and limited visibility into sales, customers, and products. To solve this, a Modern Data Warehouse was built using the Medallion Architecture (Bronze–Silver–Gold), integrating raw files, cleansing and standardizing data, and modeling a unified star schema for analytics. This improved data quality, reduced manual reporting work, and enabled consistent, reliable insights across the business. Future improvements include adding historical tracking, ETL automation, and BI dashboards.
 
 ## 2️⃣ Business Problem
 The company’s ERP and CRM data were siloed and manually processed in spreadsheets. This caused:
