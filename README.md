@@ -36,10 +36,12 @@ The company’s ERP and CRM data were siloed and manually processed in spreadshe
   
 ## 4️⃣ Skills
 This project demonstrates proficiency in:
-- ETL pipeline development (SQL Server)
+- SQL Development
+- Data Architecture
+- Data Engineering
+- ETL pipeline
 - Data cleansing & standardization
 - Data Modeling (Star Schema, Medallion Architecture)
-- Query optimization
 
 ## 5️⃣ Results 
 The Gold Layer delivers a unified, analytics-ready data representation designed for business consumption.
